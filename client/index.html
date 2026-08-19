@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>chat.kurama.info</title>
+    <meta name="description" content="End-to-end encrypted messaging. AES-256-GCM. Your key stays on your device." />
+    <meta name="theme-color" content="#f97316" />
+    <link rel="canonical" href="https://chat.kurama.info/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="chat.kurama.info" />
+    <meta property="og:title" content="chat.kurama.info" />
+    <meta property="og:description" content="End-to-end encrypted messaging. Your key never leaves your device." />
+    <meta property="og:url" content="https://chat.kurama.info/" />
+    <meta property="og:image" content="https://chat.kurama.info/img/icon-site.jpg" />
+    <meta property="og:image:secure_url" content="https://chat.kurama.info/img/icon-site.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="481" />
+    <meta property="og:image:height" content="519" />
+    <meta property="og:image:alt" content="Kurama — chat.kurama.info" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="chat.kurama.info" />
+    <meta name="twitter:description" content="End-to-end encrypted messaging. Your key never leaves your device." />
+    <meta name="twitter:image" content="https://chat.kurama.info/img/icon-site.jpg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css?v=20260816a" />
+    <link rel="icon" type="image/jpeg" href="/img/icon-site.jpg" />
+    <style>
+      html.session-resume #gate,
+      html.session-resume #reveal,
+      html.session-resume #gate-lang,
+      html.session-resume #nav-brand,
+      html.session-resume .nav-brand,
+      html.session-resume .hero-background { display: none !important; }
+      html.session-resume #boot-splash {
+        display: flex !important;
+        position: fixed; inset: 0; z-index: 9999;
+        align-items: center; justify-content: center;
+        flex-direction: column; gap: 0.75rem;
+        background: #151515; color: #d4d4d4; font-weight: 600;
+      }
+    </style>
+    <script src="/js/boot-early.js?v=20260816a"></script>
+  </head>
+  <body>
+    <div id="boot-splash" class="boot-splash" hidden aria-hidden="true">
+      <img src="/img/kurama.png" width="48" height="48" alt="" />
+      <span>Chat.kurama.info</span>
+    </div>
+
+    <div class="hero-background" aria-hidden="true">
+      <div class="hero-bg-aurora"></div>
+      <div class="hero-bg-vignette"></div>
+    </div>
+
+    <div class="lang-switch lang-switch-gate" id="gate-lang">
+      <button type="button" class="lang-btn" data-lang="fr">FR</button>
+      <button type="button" class="lang-btn" data-lang="en">EN</button>
+    </div>
+
+    <a class="nav-brand" href="/">
+      <img class="nav-kurama" src="/img/kurama.png" width="36" height="36" alt="" />
+      <span class="logo-text">Chat</span>
+      <span class="logo-dot">.kurama.info</span>
+    </a>
+    <a id="site-credits" class="site-credits" href="https://github.com/Kurama250/" target="_blank" rel="noopener">by Kurama</a>
+
+    <div id="gate" class="screen hero">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="name">Chat.kurama.info</span>
+            <span class="role">
+              <span id="role-text" class="role-text">AES-256-GCM</span>
+              <span class="role-cursor">|</span>
+            </span>
+          </h1>
+          <p class="lede" data-i18n="tagline">Messagerie chiffrée. Votre clé reste ici.</p>
+          <form id="create-form" class="hero-actions">
+            <button type="submit" class="btn brass" data-i18n="createVault">Créer mon coffre</button>
+          </form>
+          <p id="gate-error" class="error" hidden></p>
+        </div>
+
+        <form id="login-form" class="code-window" method="post" action="/" autocomplete="on">
+          <input
+            type="text"
+            id="login-username"
+            name="username"
+            class="autofill-anchor"
+            value="chat.kurama.info"
+            autocomplete="username"
+            tabindex="-1"
+            aria-hidden="true"
+          />
+          <div class="code-header">
+            <div class="code-controls">
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+            </div>
+            <div class="code-tab">login.key.js</div>
+          </div>
+          <div class="code-content">
+            <img src="/img/kurama-fox.gif" alt="" class="code-content-bg" width="380" height="140" aria-hidden="true" />
+            <div class="code-line">
+              <span class="code-num">1</span>
+              <span><span class="code-kw">const</span> <span class="code-var">session</span> = {</span>
+            </div>
+            <div class="code-line">
+              <span class="code-num">2</span>
+              <span>&nbsp;&nbsp;protocol: <span class="code-str">'aes-256-gcm'</span>,</span>
+            </div>
+            <div class="code-key-area">
+              <div class="code-line">
+                <span class="code-num">3</span>
+                <span>&nbsp;&nbsp;key: <span class="code-str">'</span></span>
+              </div>
+              <label class="code-key-field" for="login-key">
+                <span class="code-num" aria-hidden="true">4</span>
+                <span class="sr-only" data-i18n="loginKeyLabel">Clé de connexion</span>
+                <input
+                  id="login-key"
+                  name="password"
+                  type="password"
+                  inputmode="text"
+                  placeholder="XXXXXXXX-XXXXXXXX-…"
+                  autocomplete="current-password"
+                  spellcheck="false"
+                  autocapitalize="off"
+                  autocorrect="off"
+                  required
+                />
+              </label>
+              <div class="code-line">
+                <span class="code-num">5</span>
+                <span><span class="code-str">'</span></span>
+              </div>
+              <div class="code-line">
+                <span class="code-num">6</span>
+                <span>};</span>
+              </div>
+            </div>
+            <button type="submit" class="btn ghost code-submit" data-i18n="loginSubmit">Se connecter</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="reveal" class="screen hero hidden">
+      <div class="hero-content single">
+        <div class="hero-text">
+          <h1 class="hero-title">
+            <span class="name" data-i18n="yourKey">Votre clé</span>
+            <span class="role"><span data-i18n="copyNow">À copier maintenant</span><span class="role-cursor">|</span></span>
+          </h1>
+          <p class="lede" data-i18n="keyWarning">Copiez-la. Sans elle, le coffre est perdu.</p>
+        </div>
+        <form id="store-key-form" class="code-window" method="post" action="/" autocomplete="on">
+          <input
+            type="text"
+            name="username"
+            class="autofill-anchor"
+            value="chat.kurama.info"
+            autocomplete="username"
+            tabindex="-1"
+            aria-hidden="true"
+          />
+          <input
+            type="password"
+            id="store-key-input"
+            name="password"
+            class="autofill-anchor"
+            autocomplete="new-password"
+            tabindex="-1"
+            aria-hidden="true"
+          />
+          <div class="code-header">
+            <div class="code-controls">
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+              <span class="code-dot"></span>
+            </div>
+            <div class="code-tab">master.key</div>
+          </div>
+          <div class="code-content">
+            <img src="/img/kurama-fox.gif" alt="" class="code-content-bg" width="380" height="140" aria-hidden="true" />
+            <pre id="reveal-key" class="key-block"></pre>
+            <p class="id-line"><span data-i18n="publicId">Identifiant public</span>: <strong id="reveal-id"></strong></p>
+            <div class="row">
+              <button type="button" id="copy-key" class="btn ghost" data-i18n="copyKey">Copier la clé</button>
+              <button type="submit" id="enter-app" class="btn brass" data-i18n="continue">Continuer</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div id="app" class="screen hidden app-shell">
+      <aside class="rail">
+        <header class="rail-head">
+          <div class="rail-logo">
+            <img src="/img/kurama.png" width="28" height="28" alt="" />
+            <span>Chat<span class="accent">.kurama.info</span></span>
+          </div>
+          <button type="button" id="open-settings" class="icon-btn" data-i18n="settings" data-i18n-attr="title" title="Paramètres">⚙</button>
+        </header>
+        <div class="profile-card">
+          <button type="button" id="me-avatar-btn" class="avatar" data-i18n="editPhoto" data-i18n-attr="title" title="Modifier la photo de profil">
+            <img id="me-avatar" alt="" src="/img/kurama.png" onerror="this.onerror=null;this.src='/img/kurama.png'" />
+          </button>
+          <div class="profile-meta">
+            <p class="eyebrow" data-i18n="myPseudo">Mon pseudo</p>
+            <button type="button" id="my-display-name" class="id-chip pseudo-chip" data-i18n="setPseudo" data-i18n-attr="title" title="Modifier le pseudo">Définir un pseudo</button>
+            <p class="eyebrow" data-i18n="publicId">Identifiant public</p>
+            <button type="button" id="copy-id" class="id-chip" data-i18n="copyId" data-i18n-attr="title" title="Copier l’identifiant"></button>
+          </div>
+        </div>
+        <div class="rail-actions">
+          <button type="button" id="open-find" class="btn brass tiny" data-i18n="inviteById">Inviter par ID</button>
+          <button type="button" id="open-group" class="btn ghost tiny" data-i18n="newGroup">Nouveau groupe</button>
+        </div>
+        <ul id="conv-list" class="conv-list"></ul>
+      </aside>
+      <section class="thread">
+        <header class="thread-head">
+          <button type="button" id="thread-back" class="icon-btn thread-back" data-i18n="back" data-i18n-attr="title" title="Retour">←</button>
+          <img id="thread-avatar" class="conv-avatar" alt="" src="/img/kurama.png" onerror="this.onerror=null;this.src='/img/kurama.png'" />
+          <div class="thread-head-text">
+            <h2 id="thread-title" data-i18n="noConversation">Aucune conversation</h2>
+            <p id="thread-sub" class="muted" data-i18n="inviteHint">Invitez par ID.</p>
+          </div>
+          <div class="thread-head-actions">
+            <button type="button" id="thread-menu" class="icon-btn hidden" data-i18n="threadMenu" data-i18n-attr="title" title="Options conversation">⋯</button>
+            <button type="button" id="thread-more" class="icon-btn hidden" data-i18n="editGroupBtn" data-i18n-attr="title" title="Modifier le groupe">✎</button>
+          </div>
+        </header>
+        <div id="invite-bar" class="invite-bar hidden"></div>
+        <div id="messages" class="messages"></div>
+        <form id="composer" class="composer hidden">
+          <div id="media-picker" class="media-picker hidden" aria-hidden="true"></div>
+          <button type="button" id="open-picker" class="composer-btn" data-i18n="openPicker" data-i18n-attr="title" title="Emoji &amp; GIF">😀</button>
+          <label class="file-btn" data-i18n="attachFile" data-i18n-attr="title" title="Joindre un fichier chiffré">
+            +
+            <input id="file-input" type="file" hidden />
+          </label>
+          <input id="msg-input" type="text" data-i18n="messagePlaceholder" placeholder="Message…" autocomplete="off" maxlength="8000" />
+          <button type="submit" class="btn brass" data-i18n="send">Envoyer</button>
+        </form>
+      </section>
+    </div>
+
+    <div id="modal" class="modal hidden" role="dialog" aria-modal="true">
+      <div class="modal-card" id="modal-card"></div>
+    </div>
+
+    <div id="app-dialog" class="modal hidden" role="alertdialog" aria-modal="true">
+      <div class="modal-card dialog-card" id="app-dialog-card">
+        <p class="dialog-text" id="app-dialog-text"></p>
+        <div class="actions" id="app-dialog-actions"></div>
+      </div>
+    </div>
+
+    <script type="module" src="/js/app.js?v=20260816a"></script>
+  </body>
+</html>

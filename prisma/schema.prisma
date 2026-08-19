@@ -1,0 +1,29 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../data/index.db"
+}
+
+// Index minimal uniquement. Aucun clair : les payloads vivent en JSON chiffré dans /data.
+model UserIndex {
+  publicId  String   @id
+  locator   String   @unique
+  createdAt DateTime @default(now())
+}
+
+model EnvelopeIndex {
+  id          String   @id
+  recipientId String
+  createdAt   DateTime @default(now())
+
+  @@index([recipientId, createdAt])
+}
+
+model FileIndex {
+  id        String   @id
+  size      Int
+  createdAt DateTime @default(now())
+}
