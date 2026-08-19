@@ -2,7 +2,7 @@
 
 <div align="center">
 
-<img src="https://cdn.simpleicons.org/letsencrypt/181717" width="80" alt="Encryption"/>
+<img src="https://cdn.simpleicons.org/letsencrypt/FFFFFF" width="80" alt="Encryption"/>
 
 <br/><br/>
 
